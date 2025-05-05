@@ -42,7 +42,7 @@ jobs:
           path: build/reports/jacoco/test/html
 
       - name: Comment on coverage for current branch
-        if: github.event_name == 'pull_request' && github.base_ref == 'develop'
+        if: github.event_name == 'pull_request' && github.base_ref == 'development'
         uses: madrapps/jacoco-report@v1.7.1
         with:
           paths: |
