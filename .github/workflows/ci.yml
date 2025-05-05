@@ -1,0 +1,77 @@
+name: Kotlin Gradle CI with JaCoCo Test Coverage 🚀
+
+on:
+  push:
+  pull_request:
+    branches: [ "development" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # This fetches the complete history including all branches
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle Wrapper
+        run: ./gradlew build
+
+      - name: Generate JaCoCo Report
+        run: ./gradlew jacocoTestReport
+
+      - name: Upload JaCoCo HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-html
+          path: build/reports/jacoco/test/html
+
+      - name: Comment on coverage for current branch
+        if: github.event_name == 'pull_request' && github.base_ref == 'develop'
+        uses: madrapps/jacoco-report@v1.7.1
+        with:
+          paths: |
+            build/reports/jacoco/test/jacocoTestReport.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 90
+          min-coverage-changed-files: 90
+          update-comment: false
+          title: "🛡️ Code Coverage Report"
+          check-for-current-branch: true
+          coverage-counter-type: LINE,INSTRUCTION,BRANCH,METHOD,CLASS
+          include-all-sources: true
+          failure-message: "Code coverage is currently at {coverage}%. Target is 100%. You can view the full report [here](https://github.com/${{ github.repository }}/actions/artifacts/${{ steps.upload-jacoco-report.outputs.artifact_id }}/path/build/reports/jacoco/test/html)."
+          success-message: "✅ Code coverage is at {coverage}%. You can view the full report [here](https://github.com/${{ github.repository }}/actions/artifacts/${{ steps.upload-jacoco-report.outputs.artifact_id }}/path/build/reports/jacoco/test/html)."
+          report-on-status: true
+
+  dependency-submission:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Generate and submit dependency graph
+        uses: gradle/actions/dependency-submission@v4
