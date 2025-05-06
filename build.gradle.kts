@@ -56,8 +56,7 @@ dependencies {
 
     // Mongo DB
     implementation("org.mongodb:mongodb-driver-kotlin-coroutine:4.10.1")
-
-
+    implementation(kotlin("test"))
 
 
 }
