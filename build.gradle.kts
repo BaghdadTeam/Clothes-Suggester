@@ -8,6 +8,7 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    maven { url = uri("https://jitpack.io") }
 }
 
 dependencies {
@@ -51,7 +52,12 @@ dependencies {
     testImplementation(kotlin("test"))
 
     // dotenv
-    implementation("io.github.cdimascio:dotenv-kotlin:6.2.2")
+    implementation("com.github.dotenv-org:dotenv-vault-kotlin:0.0.2")
+
+    // Mongo DB
+    implementation("org.mongodb:mongodb-driver-kotlin-coroutine:4.10.1")
+
+
 
 
 }
