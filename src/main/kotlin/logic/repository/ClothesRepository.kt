@@ -5,5 +5,5 @@ import org.baghdad.logic.module.entities.CurrentWeather
 
 
 interface ClothesRepository {
-    suspend fun getClothesSuggestion(currentWeather: CurrentWeather): ClothesSuggestion
+    suspend fun getClothesByWeatherStatus(currentWeather: CurrentWeather): ClothesSuggestion
 }
