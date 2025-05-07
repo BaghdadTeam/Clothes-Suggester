@@ -1,12 +1,13 @@
 package di
 
-import data.source.remote.weather.WeatherRemoteSource
+import data.source.weather.WeatherDataSource
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.baghdad.data.repository.weather.WeatherRepositoryImpl
+import org.baghdad.data.source.DataSource
 import org.baghdad.logic.repository.WeatherRepository
 import org.koin.dsl.module
 
@@ -25,7 +26,7 @@ val appModule = module {
     }
 
     // Remote data source
-    single { WeatherRemoteSource(get()) }
+    single<DataSource> { WeatherDataSource(get()) }
 
     // Repositories
     single<WeatherRepository> { WeatherRepositoryImpl(get()) }
