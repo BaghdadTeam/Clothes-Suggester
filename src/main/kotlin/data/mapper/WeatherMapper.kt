@@ -8,7 +8,7 @@ fun WeatherResponse.toDomain(): CurrentWeather {
     return CurrentWeather(
         temperatureInCelsius = main.temp,
         weatherCondition = WeatherCondition.fromDescription(
-            weather.firstOrNull()?.description ?: ""
+            weather.firstOrNull()?.description.toString()
         )
     )
 }
