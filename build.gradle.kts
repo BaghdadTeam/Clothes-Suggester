@@ -57,7 +57,9 @@ dependencies {
     // Mongo DB
     implementation("org.mongodb:mongodb-driver-kotlin-coroutine:4.10.1")
 
-
+    // Ktor testing 
+    testImplementation("io.ktor:ktor-client-mock:3.1.2")
+    testImplementation("io.ktor:ktor-client-content-negotiation:3.1.2")
 
 
 }
