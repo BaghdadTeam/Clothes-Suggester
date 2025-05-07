@@ -8,9 +8,11 @@ import com.mongodb.kotlin.client.coroutine.MongoClient
 import io.github.cdimascio.dotenv.dotenv
 import org.baghdad.logic.module.exceptions.MongoDBConnectionException
 
-class MongoClientProvider {
-   val connectionString = dotenv()["MONGO_CONNECTION_STRING"]
-       ?: throw MongoDBConnectionException("No connection string found")
+class MongoClientProvider(
+    connectionString: String? = dotenv()["MONGO_CONNECTION_STRING"])
+{
+    private val connectionString: String = connectionString
+        ?: throw MongoDBConnectionException("No connection string found")
 
     fun getClient(): MongoClient {
         val serverApi = ServerApi.builder().version(ServerApiVersion.V1).build()
