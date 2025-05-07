@@ -21,6 +21,6 @@ Thumbs.db
 # Environment files (optional)
 *.env
 
-local.properties
+/local.properties
 # Optional: ignore generated files in src (if any)
 # src/**/*.class
