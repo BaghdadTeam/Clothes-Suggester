@@ -1,8 +1,9 @@
-package org.baghdad.logic.repository
+package org.baghdad.data.repository.weather
 
-import data.source.remote.wheather.WeatherRemoteSource
+import data.source.remote.weather.WeatherRemoteSource
 import org.baghdad.data.mapper.toDomain
 import org.baghdad.logic.module.entities.CurrentWeather
+import org.baghdad.logic.repository.WeatherRepository
 
 class WeatherRepositoryImpl(
     private val remoteSource: WeatherRemoteSource

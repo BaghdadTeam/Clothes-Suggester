@@ -1,10 +1,10 @@
 package org.baghdad.data.mapper
 
-import data.source.remote.wheather.model.OpenWeatherResponse
+import data.source.remote.weather.model.WeatherResponse
 import org.baghdad.logic.module.entities.CurrentWeather
 import org.baghdad.logic.module.entities.WeatherCondition
 
-fun OpenWeatherResponse.toDomain(): CurrentWeather {
+fun WeatherResponse.toDomain(): CurrentWeather {
     return CurrentWeather(
         temperatureInCelsius = main.temp,
         weatherCondition = WeatherCondition.fromDescription(

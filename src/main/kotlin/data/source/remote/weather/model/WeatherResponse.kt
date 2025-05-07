@@ -1,9 +1,9 @@
-package data.source.remote.wheather.model
+package data.source.remote.weather.model
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class OpenWeatherResponse(
+data class WeatherResponse(
     val main: Main,
     val weather: List<Weather>,
     val wind: Wind
