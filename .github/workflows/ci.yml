@@ -12,6 +12,9 @@ jobs:
       contents: read
       pull-requests: write
 
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
+
     steps:
       - uses: actions/checkout@v4
         with:
