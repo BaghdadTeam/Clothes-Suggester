@@ -24,3 +24,4 @@ Thumbs.db
 /local.properties
 # Optional: ignore generated files in src (if any)
 # src/**/*.class
+local.properties
