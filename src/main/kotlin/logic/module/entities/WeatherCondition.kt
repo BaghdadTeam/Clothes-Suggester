@@ -18,5 +18,3 @@ enum class WeatherCondition {
     Sunny,
     Unknown;
 }
-
-//data class WeatherCondition(val temp:Double,val condition:String)

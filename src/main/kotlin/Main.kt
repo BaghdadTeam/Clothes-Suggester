@@ -1,18 +1,18 @@
 package org.baghdad
 
-import WeatherCliApp
 import di.appModule
-import org.baghdad.logic.usecase.GetOutfitUseCase
-import org.baghdad.logic.usecase.GetWeatherUseCase
-import org.koin.core.context.GlobalContext.startKoin
+import kotlinx.coroutines.runBlocking
+import org.baghdad.presentation.app.WeatherApp
+import org.koin.core.context.startKoin
+import org.koin.mp.KoinPlatform.getKoin
 
 
 fun main() {
-    // Initialize DI
-    startKoin { modules(appModule) }
-
-    // Start CLI
-    WeatherCliApp(weatherUseCase = GetWeatherUseCase(), outfitUseCase = GetOutfitUseCase()).run()
-
+    startKoin {
+        modules(appModule)
+    }
+runBlocking{
+    val app = getKoin().get<WeatherApp>()
+    app.run()
 }
-
+}

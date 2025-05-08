@@ -1,21 +1,22 @@
 package di
 
-import WeatherCliApp
-import org.baghdad.logic.usecase.GetOutfitUseCase
-import org.baghdad.logic.usecase.GetWeatherUseCase
+import GetCurrentWeatherUseCase
+import logic.usecase.GetClothesSuggestionUseCase
+import org.baghdad.presentation.app.WeatherApp
 import org.baghdad.presentation.input.CliReader
+import org.baghdad.presentation.input.Reader
 import org.baghdad.presentation.output.CliLogger
+import org.baghdad.presentation.output.Logger
 import org.koin.dsl.module
 
 val appModule = module {
 
     //------------------------------------UI ----------------------------------------
-    single { CliReader() }
-    single { CliLogger() }
-    single { WeatherCliApp(get(), get()) }
+    single<Reader> { CliReader() }
+    single<Logger> { CliLogger() }
+    single { WeatherApp(get(), get(), get(), get()) }
     //------------------------------------UseCase------------------------------------
-    single { GetWeatherUseCase() }
-    single { GetOutfitUseCase() }
-
-
+    single { GetCurrentWeatherUseCase(get()) }
+    single { GetClothesSuggestionUseCase(get()) }
+    //------------------------------------Repository------------------------------------
 }
