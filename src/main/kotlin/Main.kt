@@ -1,9 +1,9 @@
 package org.baghdad
 
-import di.appModule
+import org.baghdad.di.appModule
 import org.koin.core.context.GlobalContext.startKoin
 
-fun main() {
+ fun main() {
     startKoin {
         modules(appModule)
     }

@@ -3,7 +3,7 @@ package data.source.weather.model
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class WeatherResponse(
+data class WeatherDto(
     val main: Main,
     val weather: List<Weather>,
     val wind: Wind
