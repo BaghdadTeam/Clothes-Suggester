@@ -85,7 +85,7 @@ tasks.jacocoTestReport {
             exclude("**/model/**") // Exclude entities package
             exclude("**/generated/**") // Exclude generated code if any
             exclude("**/main.kt") // Exclude main.kt file
-            exclude("**/ApiWeatherDataSource.kt") // Exclude api connection file
+            exclude("**/apiweatherdatasource.kt") // Exclude api connection file
 
         }
     )
@@ -104,7 +104,7 @@ tasks.jacocoTestCoverageVerification {
             exclude("**/di/**")
             exclude("**/model/**")
             exclude("**/main.kt")
-            exclude("**/ApiWeatherDataSource.kt")
+            exclude("**/apiweatherdatasource.kt")
         }
     )
     sourceDirectories.setFrom(files("src/main/kotlin"))
@@ -149,7 +149,7 @@ tasks.named<JacocoCoverageVerification>("jacocoTestCoverageVerification") {
             exclude("**/di/**")
             exclude("**/model/**")
             exclude("**/main.kt")
-            exclude("**/ApiWeatherDataSource.kt")
+            exclude("**/apiweatherdatasource.kt")
         }
     )
     sourceDirectories.setFrom(files("src/main/kotlin"))
