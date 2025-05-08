@@ -7,8 +7,6 @@ import io.mockk.mockk
 import org.baghdad.data.clothes.ClothesDataSource
 import org.baghdad.data.dto.ClotheDto
 import org.baghdad.data.repository.clothes.ClothesRepositoryImpl
-import org.baghdad.logic.module.entities.CurrentWeather
-import org.baghdad.logic.module.entities.WeatherCondition
 import org.junit.jupiter.api.*
 import java.util.UUID
 

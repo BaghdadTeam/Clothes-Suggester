@@ -3,8 +3,6 @@ package org.baghdad.data.repository.clothes
 import org.baghdad.data.clothes.ClothesDataSource
 import org.baghdad.data.dto.toDomain
 import org.baghdad.logic.module.entities.Clothe
-import org.baghdad.logic.module.entities.ClotheTypeBasedOnWeather
-import org.baghdad.logic.module.entities.CurrentWeather
 import org.baghdad.logic.repository.ClothesRepository
 
 class ClothesRepositoryImpl(
