@@ -1,10 +1,16 @@
 package org.baghdad
 
-import org.baghdad.di.appModule
 import org.koin.core.context.GlobalContext.startKoin
+import di.appModule
+import kotlinx.coroutines.runBlocking
+import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 
- fun main() {
-    startKoin {
-        modules(appModule)
+fun main() {
+    runBlocking {
+        startKoin {
+            modules(appModule)
+        }
+        stopKoin()
     }
 }
