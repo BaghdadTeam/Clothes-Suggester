@@ -57,8 +57,8 @@ dependencies {
     // Mongo DB
     implementation("org.mongodb:mongodb-driver-kotlin-coroutine:4.10.1")
 
-
-    testImplementation("org.mongodb:mongodb-driver-sync:4.10.1") // or latest version
+    // Mongo Test library
+    testImplementation("org.mongodb:mongodb-driver-sync:4.10.1")
 
 
 }
