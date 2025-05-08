@@ -2,8 +2,7 @@ package data.source.weather
 
 import data.source.weather.model.WeatherDto
 import io.ktor.client.*
-import io.ktor.client.engine.mock.MockEngine
-import io.ktor.client.engine.mock.respond
+import io.ktor.client.engine.mock.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
@@ -16,7 +15,7 @@ class ApiWeatherDataSourceTest {
 
     @Test
     fun `should return WeatherDto when API call is successful`() = runBlocking {
-        // Given
+// Given
         val mockResponse = """
             {
                 "main": {
