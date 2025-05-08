@@ -19,8 +19,8 @@ class WeatherApp(
             val cityName = reader.readInput()
             val weather = weatherUseCase(cityName)
             logger.info("Weather for $cityName is $weather")
-            val outfit = clothesSuggestionUseCase(weather)
-            logger.showOutfit(cityName, weather, outfit)
+            val clothes = clothesSuggestionUseCase(weather)
+            logger.showOutfit(cityName, weather, clothes)
             logger.info("Have a nice day!")
         } catch (_: NotValidCityNameException) {
             logger.showError("Please enter a valid city name")

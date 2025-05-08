@@ -1,9 +1,10 @@
 package org.baghdad.logic.repository
 
-import org.baghdad.logic.module.entities.ClothesSuggestion
+import org.baghdad.data.dto.ClotheDto
+import org.baghdad.logic.module.entities.Clothe
 import org.baghdad.logic.module.entities.CurrentWeather
 
 
 interface ClothesRepository {
-    suspend fun getClothesByWeatherStatus(currentWeather: CurrentWeather): ClothesSuggestion
+    suspend fun getClothes(): List<Clothe>
 }

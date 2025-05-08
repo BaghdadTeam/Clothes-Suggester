@@ -2,7 +2,7 @@ package org.baghdad.logic.module.entities
 
 import java.util.UUID
 
-data class Cloth(
+data class Clothe(
     val id: UUID ,
     val name: String,
     val description: String,
@@ -10,11 +10,17 @@ data class Cloth(
     val imageUrl: String,
     val clothType:ClotheTypeBasedOnWeather
     )
-enum class ClotheTypeBasedOnWeather
-{
-    HeatResistant,
+enum class ClotheTypeBasedOnWeather {
+    UltraHeavy,
+    VeryHeavy,
     Heavy,
+    Medium,
     Light,
     UltraLight,
-    UltraHeavy
+    RainProof,
+    WindProof,
+    HeatResistant,
+    SandProof,
+    FogProof,
+    Versatile
 }

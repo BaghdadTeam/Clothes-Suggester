@@ -1,7 +1,8 @@
 package org.baghdad.data.clothes
 
+import org.baghdad.data.dto.ClotheDto
 import org.baghdad.logic.module.entities.WeatherCondition
 
 interface ClothesDataSource {
-    suspend fun getClothes(temperature: Double, weatherCondition: WeatherCondition): List<String>
+    suspend fun getClothes(): List<ClotheDto>
 }

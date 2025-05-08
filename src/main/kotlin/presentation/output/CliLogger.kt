@@ -1,25 +1,29 @@
 package org.baghdad.presentation.output
 
-import org.baghdad.logic.module.entities.ClothesSuggestion
+import org.baghdad.logic.module.entities.Clothe
 import org.baghdad.logic.module.entities.CurrentWeather
 
-
 class CliLogger : Logger {
+
     override fun info(message: String) {
         println("[INFO] $message")
     }
 
-    override fun showOutfit(location: String, weather: CurrentWeather, outfit: ClothesSuggestion) {
-        info(
-            """
+    override fun showOutfit(
+        location: String,
+        weather: CurrentWeather,
+        outfit: List<Clothe>
+    ) {
+        println("""
             ========================================
             📍 $location | 🌡️ ${weather.temperatureInCelsius}°C | ${weather.weatherCondition}
             ========================================
             👕 Recommended Outfit:
-            ${outfit.clothes.joinToString("\n- ", "- ")}
-            ========================================
-            """.trimIndent()
-        )
+        """.trimIndent())
+
+        outfit.forEach { clothe ->
+            println("- ${clothe.name}: ${clothe.description}")
+        }
     }
 
     override fun showError(message: String) {
