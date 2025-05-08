@@ -57,8 +57,7 @@ dependencies {
     // Mongo DB
     implementation("org.mongodb:mongodb-driver-kotlin-coroutine:4.10.1")
 
-    // Mongo Test library
-    testImplementation("org.mongodb:mongodb-driver-sync:4.10.1")
+
 
 
 }
@@ -103,8 +102,6 @@ tasks.jacocoTestCoverageVerification {
             exclude("**/di/**")
             exclude("**/model/**")
             exclude("**/main.kt") // Exclude main.kt file
-            exclude("**/mongoclothesdatasource.kt/**")
-
         }
     )
     sourceDirectories.setFrom(files("src/main/kotlin"))
@@ -149,7 +146,6 @@ tasks.named<JacocoCoverageVerification>("jacocoTestCoverageVerification") {
             exclude("**/di/**")
             exclude("**/model/**")
             exclude("**/main.kt") // Exclude main.kt file
-            exclude("**/mongoclothesdatasource.kt/**")
         }
     )
     sourceDirectories.setFrom(files("src/main/kotlin"))
