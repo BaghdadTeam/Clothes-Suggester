@@ -1,6 +1,9 @@
 package data.source.weather
 
 import data.source.weather.model.WeatherDto
+import data.source.weather.model.Main
+import data.source.weather.model.Weather
+import data.source.weather.model.Wind
 import io.ktor.client.*
 import io.ktor.client.engine.mock.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -15,22 +18,13 @@ class ApiWeatherDataSourceTest {
 
     @Test
     fun `should return WeatherDto when API call is successful`() = runBlocking {
-// Given
-        val mockResponse = """
-            {
-                "main": {
-                    "temp": 22.5,
-                    "humidity": 60
-                },
-                "weather": [{
-                    "main": "Clear",
-                    "description": "clear sky"
-                }],
-                "wind": {
-                    "speed": 5.5
-                }
-            }
-        """.trimIndent()
+        // Given
+        val expectedWeatherDto = WeatherDto(
+            main = Main(temp = 22.5, humidity = 60),
+            weather = listOf(Weather(main = "Clear", description = "clear sky")),
+            wind = Wind(speed = 5.5)
+        )
+        val mockResponse = Json.encodeToString(WeatherDto.serializer(), expectedWeatherDto)
 
         val mockEngine = MockEngine { request ->
             respond(
@@ -45,17 +39,15 @@ class ApiWeatherDataSourceTest {
                 json(Json { ignoreUnknownKeys = true })
             }
         }
-
         val dataSource = ApiWeatherDataSource(client)
-
         // When
-        val result: WeatherDto = dataSource.fetchCurrentWeather("Baghdad")
-
+        val result: WeatherDto = dataSource.fetchCurrentWeather("AnyCity")
         // Then
-        assertEquals(22.5, result.main.temp)
-        assertEquals(60, result.main.humidity)
-        assertEquals("Clear", result.weather.first().main)
-        assertEquals("clear sky", result.weather.first().description)
-        assertEquals(5.5, result.wind.speed)
+        assertEquals(expectedWeatherDto.main.temp, result.main.temp)
+        assertEquals(expectedWeatherDto.main.humidity, result.main.humidity)
+        assertEquals(expectedWeatherDto.weather.first().main, result.weather.first().main)
+        assertEquals(expectedWeatherDto.weather.first().description, result.weather.first().description)
+        assertEquals(expectedWeatherDto.wind.speed, result.wind.speed)
+
     }
 }
