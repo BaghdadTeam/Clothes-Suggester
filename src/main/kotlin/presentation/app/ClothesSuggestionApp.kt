@@ -6,7 +6,7 @@ import org.baghdad.logic.module.exceptions.NotValidCityNameException
 import org.baghdad.presentation.input.Reader
 import org.baghdad.presentation.output.Logger
 
-class WeatherApp(
+class ClothesSuggestionApp(
     private val logger: Logger,
     private val weatherUseCase: GetCurrentWeatherUseCase,
     private val clothesSuggestionUseCase: GetClothesSuggestionUseCase,
