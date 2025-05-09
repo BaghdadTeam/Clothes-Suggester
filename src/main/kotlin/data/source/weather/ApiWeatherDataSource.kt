@@ -12,8 +12,8 @@ import org.baghdad.logic.module.exceptions.ErrorFetchingWeatherData
 class ApiWeatherDataSource(
     private val client: HttpClient
 ) : WeatherDataSource {
-    val dotenv = Dotenv.load()
-    val API_KEY = dotenv["API_KEY"] ?: throw ErrorFetchingWeatherData("Missing API_KEY")
+    private val API_KEY =
+        Dotenv.load()["API_KEY"] ?: throw ErrorFetchingWeatherData("Missing Api Key")
 
     override suspend fun fetchCurrentWeather(city: String): WeatherDto {
         return client.get("https://api.openweathermap.org/data/2.5/weather") {
