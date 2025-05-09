@@ -60,7 +60,6 @@ dependencies {
     // Mongo Test library
     testImplementation("org.mongodb:mongodb-driver-sync:4.10.1")
 
-
 }
 
 tasks.test {
@@ -86,6 +85,8 @@ tasks.jacocoTestReport {
             exclude("**/model/**") // Exclude entities package
             exclude("**/generated/**") // Exclude generated code if any
             exclude("**/main.kt") // Exclude main.kt file
+            exclude("**/ApiWeatherDataSource.class") // Exclude api connection file
+
         }
     )
 
@@ -102,7 +103,8 @@ tasks.jacocoTestCoverageVerification {
             exclude("**/generated/**")
             exclude("**/di/**")
             exclude("**/model/**")
-            exclude("**/main.kt") // Exclude main.kt file
+            exclude("**/main.kt")
+            exclude("**/ApiWeatherDataSource.class")
         }
     )
     sourceDirectories.setFrom(files("src/main/kotlin"))
@@ -146,7 +148,8 @@ tasks.named<JacocoCoverageVerification>("jacocoTestCoverageVerification") {
             exclude("**/generated/**")
             exclude("**/di/**")
             exclude("**/model/**")
-            exclude("**/main.kt") // Exclude main.kt file
+            exclude("**/main.kt")
+            exclude("**/ApiWeatherDataSource.class")
         }
     )
     sourceDirectories.setFrom(files("src/main/kotlin"))
