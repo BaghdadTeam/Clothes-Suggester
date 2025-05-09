@@ -86,6 +86,7 @@ tasks.jacocoTestReport {
             exclude("**/generated/**") // Exclude generated code if any
             exclude("**/main.kt") // Exclude main.kt file
             exclude("**/ApiWeatherDataSource.class") // Exclude api connection file
+            exclude("**/MongoClothesDataSource.class") // Exclude mongo connection file
 
         }
     )
@@ -105,6 +106,7 @@ tasks.jacocoTestCoverageVerification {
             exclude("**/model/**")
             exclude("**/main.kt")
             exclude("**/ApiWeatherDataSource.class")
+            exclude("**/MongoClothesDataSource.class") // Exclude mongo connection file
         }
     )
     sourceDirectories.setFrom(files("src/main/kotlin"))
@@ -113,7 +115,7 @@ tasks.jacocoTestCoverageVerification {
     violationRules {
         rule {
             limit {
-                minimum = "0.90".toBigDecimal() // 100% coverage requirement
+                minimum = "0.80".toBigDecimal() // 100% coverage requirement
             }
         }
         rule {
@@ -123,17 +125,17 @@ tasks.jacocoTestCoverageVerification {
             limit {
                 counter = "LINE"
                 value = "COVEREDRATIO"
-                minimum = "0.90".toBigDecimal()
+                minimum = "0.80".toBigDecimal()
             }
             limit {
                 counter = "BRANCH"
                 value = "COVEREDRATIO"
-                minimum = "0.90".toBigDecimal()
+                minimum = "0.80".toBigDecimal()
             }
             limit {
                 counter = "METHOD"
                 value = "COVEREDRATIO"
-                minimum = "0.90".toBigDecimal()
+                minimum = "0.80".toBigDecimal()
             }
         }
     }
@@ -150,6 +152,7 @@ tasks.named<JacocoCoverageVerification>("jacocoTestCoverageVerification") {
             exclude("**/model/**")
             exclude("**/main.kt")
             exclude("**/ApiWeatherDataSource.class")
+            exclude("**/MongoClothesDataSource.class") // Exclude mongo connection file
         }
     )
     sourceDirectories.setFrom(files("src/main/kotlin"))

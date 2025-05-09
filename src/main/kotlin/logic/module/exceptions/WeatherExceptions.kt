@@ -1,4 +1,4 @@
 package org.baghdad.logic.module.exceptions
 
-class ErrorFetchingWeatherData(message: String) : Exception(message)
+class ErrorFetchingWeatherData(msg: String): Exception(msg)
 class NotValidCityNameException(msg: String): Exception(msg)

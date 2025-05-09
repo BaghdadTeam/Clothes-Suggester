@@ -2,15 +2,16 @@ package org.baghdad
 
 import di.appModule
 import kotlinx.coroutines.runBlocking
-import org.koin.core.context.GlobalContext.startKoin
-import org.koin.core.context.GlobalContext.stopKoin
-
+import org.baghdad.presentation.app.ClothesSuggestionApp
+import org.koin.core.context.startKoin
+import org.koin.mp.KoinPlatform.getKoin
 
 fun main() {
-    runBlocking {
-        startKoin {
-            modules(appModule)
-        }
-        stopKoin()
+    startKoin {
+        modules(appModule)
+    }
+    runBlocking() {
+        val app : ClothesSuggestionApp = getKoin().get()
+        app.run()
     }
 }

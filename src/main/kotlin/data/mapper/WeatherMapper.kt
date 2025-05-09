@@ -1,6 +1,6 @@
 package org.baghdad.data.mapper
 
-import data.source.weather.model.WeatherDto
+import data.dto.WeatherDto
 import org.baghdad.logic.module.entities.CurrentWeather
 import org.baghdad.logic.module.entities.WeatherCondition
 

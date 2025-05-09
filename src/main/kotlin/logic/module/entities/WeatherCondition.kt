@@ -17,7 +17,6 @@ enum class WeatherCondition {
     Mist,
     Sunny,
     Unknown;
-
     companion object {
         fun fromDescription(description: String): WeatherCondition {
             val desc = description.lowercase()
@@ -42,4 +41,5 @@ enum class WeatherCondition {
             }
         }
     }
+
 }

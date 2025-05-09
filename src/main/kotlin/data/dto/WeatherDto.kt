@@ -1,5 +1,4 @@
-package data.source.weather.model
-
+package data.dto
 import kotlinx.serialization.Serializable
 
 @Serializable
