@@ -1,7 +1,7 @@
 package org.baghdad.data.repository.weather
 
 import org.baghdad.data.mapper.toDomain
-import org.baghdad.data.source.WeatherDataSource
+import org.baghdad.data.weather.WeatherDataSource
 import org.baghdad.logic.module.entities.CurrentWeather
 import org.baghdad.logic.module.exceptions.ErrorFetchingWeatherData
 import org.baghdad.logic.repository.WeatherRepository

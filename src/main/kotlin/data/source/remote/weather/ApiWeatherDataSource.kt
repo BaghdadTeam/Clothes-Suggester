@@ -6,7 +6,7 @@ import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import data.source.weather.model.WeatherDto
 import io.github.cdimascio.dotenv.Dotenv
-import org.baghdad.data.source.WeatherDataSource
+import org.baghdad.data.weather.WeatherDataSource
 import org.baghdad.logic.module.exceptions.ErrorFetchingWeatherData
 
 class ApiWeatherDataSource(
