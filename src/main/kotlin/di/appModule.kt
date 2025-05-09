@@ -1,6 +1,6 @@
 package di
 import GetCurrentWeatherUseCase
-import data.source.weather.ApiWeatherDataSource
+import data.source.remote.weather.ApiWeatherDataSource
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation

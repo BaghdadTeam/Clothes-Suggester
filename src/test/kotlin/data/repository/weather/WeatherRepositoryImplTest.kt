@@ -1,11 +1,11 @@
 package data.repository.weather
 
 import com.google.common.truth.Truth.assertThat
-import data.source.weather.ApiWeatherDataSource
-import data.source.weather.model.Main
-import data.source.weather.model.Weather
-import data.source.weather.model.WeatherDto
-import data.source.weather.model.Wind
+import data.source.remote.weather.ApiWeatherDataSource
+import data.dto.Main
+import data.dto.Weather
+import data.dto.WeatherDto
+import data.dto.Wind
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest

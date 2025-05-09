@@ -1,4 +1,3 @@
-// File: ClotheDto.kt
 
 package org.baghdad.data.dto
 

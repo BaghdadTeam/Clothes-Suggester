@@ -1,5 +1,5 @@
 package logic.usecase
-import org.baghdad.logic.comman.WeatherToClotheTypeMapper
+import logic.module.services.WeatherToClotheTypeMapper
 import org.baghdad.logic.module.entities.Clothe
 import org.baghdad.logic.module.entities.CurrentWeather
 import org.baghdad.logic.repository.ClothesRepository

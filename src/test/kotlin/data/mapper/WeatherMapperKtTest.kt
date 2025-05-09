@@ -1,10 +1,10 @@
 package data.mapper
 
 import com.google.common.truth.Truth.assertThat
-import data.source.weather.model.Main
-import data.source.weather.model.Weather
-import data.source.weather.model.WeatherDto
-import data.source.weather.model.Wind
+import data.dto.Main
+import data.dto.Weather
+import data.dto.WeatherDto
+import data.dto.Wind
 import org.baghdad.data.mapper.toDomain
 import org.baghdad.logic.module.entities.WeatherCondition
 import kotlin.test.Test

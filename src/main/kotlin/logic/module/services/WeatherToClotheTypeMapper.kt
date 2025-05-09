@@ -1,5 +1,4 @@
-package org.baghdad.logic.comman
-
+package logic.module.services
 import org.baghdad.logic.module.entities.ClotheTypeBasedOnWeather
 import org.baghdad.logic.module.entities.WeatherCondition
 
