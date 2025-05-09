@@ -15,7 +15,7 @@ import org.baghdad.data.source.remote.clothes.MongoClientProvider
 import org.baghdad.data.source.remote.clothes.MongoClothesDataSource
 import org.baghdad.logic.repository.ClothesRepository
 import org.baghdad.logic.repository.WeatherRepository
-import org.baghdad.presentation.app.WeatherApp
+import org.baghdad.presentation.app.ClothesSuggestionApp
 import org.baghdad.presentation.input.CliReader
 import org.baghdad.presentation.input.Reader
 import org.baghdad.presentation.output.CliLogger
@@ -49,7 +49,7 @@ val appModule = module {
     // UI
     single<Reader>{ CliReader() }
     single<Logger>{ CliLogger() }
-    single { WeatherApp(get(), get(), get(), get()) }
+    single { ClothesSuggestionApp(get(), get(), get(), get()) }
 
 
 }
