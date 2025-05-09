@@ -1,4 +1,3 @@
-
 package org.baghdad.data.dto
 
 import org.baghdad.logic.module.entities.Clothe

@@ -1,4 +1,4 @@
-package org.baghdad.data.weather
+package data.datasource
 
 import data.dto.WeatherDto
 

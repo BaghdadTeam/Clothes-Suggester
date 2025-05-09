@@ -1,4 +1,4 @@
-package data.source.remote.weather
+package data.datasource.remote.weather
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -6,7 +6,7 @@ import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import data.dto.WeatherDto
 import io.github.cdimascio.dotenv.Dotenv
-import org.baghdad.data.weather.WeatherDataSource
+import data.datasource.WeatherDataSource
 import org.baghdad.logic.module.exceptions.ErrorFetchingWeatherData
 
 class ApiWeatherDataSource(

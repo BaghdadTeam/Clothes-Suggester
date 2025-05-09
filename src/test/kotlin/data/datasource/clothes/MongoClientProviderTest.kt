@@ -1,6 +1,6 @@
-package data.source.clothes
+package data.datasource.clothes
 import com.google.common.truth.Truth.assertThat
-import org.baghdad.data.source.remote.clothes.MongoClientProvider
+import data.datasource.remote.clothes.MongoClientProvider
 import org.baghdad.logic.module.exceptions.MongoDBConnectionException
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
