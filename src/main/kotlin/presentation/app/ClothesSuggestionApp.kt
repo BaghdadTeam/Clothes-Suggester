@@ -13,21 +13,20 @@ class ClothesSuggestionApp(
     private val reader: Reader
 ) {
     suspend fun run() {
-        logger.info("Welcome to the weather app!")
+        logger.info("👋 Welcome to the Clothes Suggestion App!\n")
         try {
-            logger.info("Enter city name to get weather info")
+            logger.info("🌍 Please enter the name of your city to check the weather:")
             val cityName = reader.readInput()
             val weather = weatherUseCase(cityName)
-            logger.info("Weather for $cityName is $weather")
+            logger.info("📍 Weather in $cityName: $weather")
             val clothes = clothesSuggestionUseCase(weather)
             logger.showOutfit(cityName, weather, clothes)
-            logger.info("Have a nice day!")
+            logger.info("🧥 Stay comfy and have a great day!")
         } catch (_: NotValidCityNameException) {
-            logger.showError("Please enter a valid city name")
+            logger.showError("⚠️ That doesn't seem like a valid city name. Please try again.")
             run()
         } catch (e: Exception) {
-            logger.showError(e.message ?: "Unknown error")
+            logger.showError("❌ Oops! Something went wrong: ${e.message ?: "Unknown error"}")
         }
-
     }
 }

@@ -6,7 +6,7 @@ import org.baghdad.logic.module.entities.CurrentWeather
 class CliLogger : Logger {
 
     override fun info(message: String) {
-        println("[INFO] $message")
+        print(message)
     }
 
     override fun showOutfit(

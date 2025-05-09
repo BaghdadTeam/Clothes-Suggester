@@ -10,7 +10,7 @@ import logic.usecase.GetClothesSuggestionUseCase
 import org.baghdad.data.clothes.ClothesDataSource
 import org.baghdad.data.repository.clothes.ClothesRepositoryImpl
 import org.baghdad.data.repository.weather.WeatherRepositoryImpl
-import org.baghdad.data.source.WeatherDataSource
+import org.baghdad.data.weather.WeatherDataSource
 import org.baghdad.data.source.remote.clothes.MongoClientProvider
 import org.baghdad.data.source.remote.clothes.MongoClothesDataSource
 import org.baghdad.logic.repository.ClothesRepository
