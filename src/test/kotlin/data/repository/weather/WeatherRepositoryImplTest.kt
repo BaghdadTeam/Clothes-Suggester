@@ -1,7 +1,7 @@
 package data.repository.weather
 
 import com.google.common.truth.Truth.assertThat
-import data.source.remote.weather.ApiWeatherDataSource
+import data.datasource.remote.weather.ApiWeatherDataSource
 import data.dto.Main
 import data.dto.Weather
 import data.dto.WeatherDto

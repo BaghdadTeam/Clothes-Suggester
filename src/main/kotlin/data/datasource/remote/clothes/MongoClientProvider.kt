@@ -1,4 +1,4 @@
-package org.baghdad.data.source.remote.clothes
+package data.datasource.remote.clothes
 
 import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings

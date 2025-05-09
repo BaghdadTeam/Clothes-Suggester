@@ -1,7 +1,7 @@
-package org.baghdad.data.source.remote.clothes
+package data.datasource.remote.clothes
 
 import kotlinx.coroutines.flow.toList
-import org.baghdad.data.clothes.ClothesDataSource
+import data.datasource.ClothesDataSource
 import org.baghdad.data.dto.ClotheDto
 import org.baghdad.data.dto.MongoClothesDocument
 import org.baghdad.logic.module.exceptions.NoClothesSuggestionException

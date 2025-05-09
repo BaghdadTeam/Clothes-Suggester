@@ -4,7 +4,7 @@ import com.google.common.truth.Truth.assertThat
 import io.kotest.common.runBlocking
 import io.mockk.coEvery
 import io.mockk.mockk
-import org.baghdad.data.clothes.ClothesDataSource
+import data.datasource.ClothesDataSource
 import org.baghdad.data.dto.ClotheDto
 import org.baghdad.data.repository.clothes.ClothesRepositoryImpl
 import org.junit.jupiter.api.*
