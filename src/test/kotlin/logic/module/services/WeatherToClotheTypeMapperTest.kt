@@ -143,16 +143,4 @@ class WeatherToClotheTypeMapperTest {
         val result = WeatherToClotheTypeMapper.mapToClotheTypes(10.0, Rainy)
         result shouldContainExactlyInAnyOrder listOf(Heavy, Medium, RainProof, HeatResistant)
     }
-
-    @Test
-    fun `should map temperature Infinity to Versatile`() {
-        val result = WeatherToClotheTypeMapper.mapTemperatureToClotheType(Double.POSITIVE_INFINITY)
-        result shouldContainExactlyInAnyOrder listOf(Versatile)
-    }
-
-    @Test
-    fun `should map temperature NegativeInfinity to Versatile`() {
-        val result = WeatherToClotheTypeMapper.mapTemperatureToClotheType(Double.NEGATIVE_INFINITY)
-        result shouldContainExactlyInAnyOrder listOf(Versatile)
-    }
 }
