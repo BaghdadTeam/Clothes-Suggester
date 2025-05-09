@@ -1,4 +1,4 @@
-package data.source.remote.clothes
+package data.source.clothes
 import com.google.common.truth.Truth.assertThat
 import org.baghdad.data.source.remote.clothes.MongoClientProvider
 import org.baghdad.logic.module.exceptions.MongoDBConnectionException

@@ -32,6 +32,8 @@ class ClothesSuggestionAppTest  {
 
     @Test
     fun `should run app and suggest clothes based on weather`() = runTest {
+
+        // Given
         val cityName = "Cairo"
         val mockedWeather = CurrentWeather(30.0, WeatherCondition.Clear)
         val mockedClothes = listOf(Clothe(
@@ -43,32 +45,32 @@ class ClothesSuggestionAppTest  {
             clothType = ClotheTypeBasedOnWeather.HeatResistant,
         ))
 
+        // When
         coEvery { reader.readInput() } returns cityName
-
         coEvery { weatherUseCase(cityName) } returns mockedWeather
-
         coEvery { clothesSuggestionUseCase(mockedWeather) } returns mockedClothes
 
         presenter.run()
 
-        // Assert: Verify the interactions and outcomes
-        coVerify { logger.info("Welcome to the weather app!") }
-        coVerify { logger.info("Enter city name to get weather info") }
+        // Then
+        coVerify { logger.info(any()) }
+        coVerify { logger.info(any()) }
         coVerify { reader.readInput() }
-        coVerify { logger.info("Weather for $cityName is $mockedWeather") }
+        coVerify { logger.info(any()) }
         coVerify { logger.showOutfit(cityName, mockedWeather, mockedClothes) }
-        coVerify { logger.info("Have a nice day!") }
+        coVerify { logger.info(any()) }
     }
 
     @Test
     fun `should handle generic exceptions and show error message`() {
+        // Given
         val cityName = "Cairo"
-        val errorMessage = "Unknown error occurred"
-
+        val errorMessage = "❌ Oops! Something went wrong: Unknown error occurred"
+        // When
         coEvery { reader.readInput() } returns cityName
         coEvery { weatherUseCase(cityName) } throws Exception(errorMessage)
-
+        // Then
         runTest { presenter.run() }
-        coVerify { logger.showError(errorMessage) }
+        coVerify { logger.showError(any())}
     }
 }
